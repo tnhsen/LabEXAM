@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:LabEXAM.ViewModel"
+             BackgroundColor="AntiqueWhite"
+             x:Class="LabEXAM.View.ProductListPage">
+    <ContentPage.BindingContext>
+        <local:ProductListPageViewModel/>
+    </ContentPage.BindingContext>
+    
+    
+    
+    <ContentPage.Content>
+        <StackLayout Padding="10" Margin="10,10,10,10" >
+            <CollectionView ItemsSource="{Binding Products}" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5,5,5,5" BackgroundColor="PowderBlue">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height=".1*" />
+                                <RowDefinition Height=".1*" />
+                                
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".1*" />
+                                <ColumnDefinition Width=".9*" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <Image Source="{Binding image}" Grid.Column="0" Grid.RowSpan="2"/>
+
+                            <Label Text="{Binding title}" FontSize="Medium" Grid.Column="1" Grid.Row="0" FontAttributes="Bold"/>
+                            <Label Text="{Binding price}" FontSize="Medium" Grid.Column="1" Grid.Row="1"/>
+                            <!--StackLayout Orientation="Horizontal" >
+                                <Image Source="{Binding image}" Grid.Column="1" />
+                                <StackLayout Padding="10" Orientation="Vertical">
+                                    <Label Text="{Binding title}" FontSize="Medium" />
+                                    <Label Text="{Binding price}" FontSize="Medium"/>
+                                </StackLayout>
+                            </StackLayout-->
+                        </Grid>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

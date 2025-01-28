@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:LabEXAM.ViewModel"
+             x:Class="LabEXAM.MainPage">
+    
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout>
+        <Label HorizontalOptions="Center" Margin="0,150,0,0" Text="Login" FontSize="30" HeightRequest="200" TextColor="blue" FontAttributes="Bold"/>
+        <Entry Placeholder="Username" x:Name="username" Text="{Binding UserName}" />
+        <Entry Placeholder="Password" x:Name="password" Text="{Binding PassWord}"/>
+        <Button Text="Login" BackgroundColor="Aqua" Command="{Binding LoginCommand}"/>
+        <Label Text="{Binding LoginState}" HorizontalOptions="Center"/>
+    </StackLayout>
+
+</ContentPage>
